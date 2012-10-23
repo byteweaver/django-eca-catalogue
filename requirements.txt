@@ -2,3 +2,5 @@ django
 django-nose
 coverage
 django-coverage
+django-treebeard
+factory_boy
