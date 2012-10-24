@@ -1,6 +1,6 @@
 from treebeard.admin import TreeAdmin
 
 
-class AbstractProductCategoryAdmin(TreeAdmin):
+class AbstractNestedProductCategoryAdmin(TreeAdmin):
     prepopulated_fields = {"slug": ("name",)}
 

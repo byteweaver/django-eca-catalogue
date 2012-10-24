@@ -1,6 +1,6 @@
-from eca_catalogue.abstract_models import AbstractProductCategory
+from eca_catalogue.abstract_models import AbstractNestedProductCategory
 
 
-class ProductCategory(AbstractProductCategory):
+class NestedProductCategory(AbstractNestedProductCategory):
     pass
 
