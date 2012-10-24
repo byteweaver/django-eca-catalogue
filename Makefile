@@ -12,4 +12,4 @@ reqirements:
 	$(PIP_BIN) install -r requirements.txt
 
 test:
-	$(PYTHON_BIN) catalogue/tests/runtests.py
+	$(PYTHON_BIN) eca_catalogue/tests/runtests.py
