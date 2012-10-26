@@ -12,6 +12,16 @@ class NSDMixin(models.Model):
     class Meta:
         abstract = True
 
+class AbstractProductCategory(NSDMixin):
+    class Meta:
+        abstract = True
+        verbose_name = _("Product category")
+        verbose_name_plural = _("product categories")
+        ordering = ['name']
+
+    def __unicode__(self):
+        return self.name
+
 class AbstractNestedProductCategory(MP_Node, NSDMixin):
     class Meta:
         abstract = True
