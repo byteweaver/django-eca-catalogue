@@ -16,7 +16,7 @@ class AbstractProductCategory(NSDMixin):
     class Meta:
         abstract = True
         verbose_name = _("Product category")
-        verbose_name_plural = _("product categories")
+        verbose_name_plural = _("Product categories")
         ordering = ['name']
 
     def __unicode__(self):
