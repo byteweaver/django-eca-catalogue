@@ -1,11 +1,16 @@
 from django.contrib import admin
 from django.db import models
 from django.forms.widgets import TextInput
+from django.utils.translation import ugettext_lazy as _
 
 from treebeard.admin import TreeAdmin
 
 from abstract_models import AbstractSellingPoint
 
+# fieldset for PackageMeasurementMixin, use like: fieldsets.append(package_measurement_fieldset)
+package_measurement_fieldset = [_("Package measurement"), {
+    'fields': ['length', 'width', 'height', 'weight']
+}]
 
 class AbstractProductCategoryAdmin(admin.ModelAdmin):
     prepopulated_fields = {"slug": ("name",)}
