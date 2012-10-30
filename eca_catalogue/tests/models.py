@@ -1,4 +1,4 @@
-from eca_catalogue.abstract_models import AbstractProductCategory, AbstractNestedProductCategory, AbstractProduct
+from eca_catalogue.abstract_models import *
 
 
 class ProductCategory(AbstractProductCategory):
@@ -10,3 +10,5 @@ class NestedProductCategory(AbstractNestedProductCategory):
 class Product(AbstractProduct):
     pass
 
+class SellingPoint(AbstractSellingPoint):
+    pass
