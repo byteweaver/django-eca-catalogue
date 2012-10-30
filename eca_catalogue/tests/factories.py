@@ -1,7 +1,7 @@
 from django.contrib.auth.models import User
 import factory
 
-from eca_catalogue.tests.models import ProductCategory
+from eca_catalogue.tests.models import ProductCategory, Product
 
 
 class UserFactory(factory.Factory):
@@ -14,4 +14,11 @@ class ProductCategoryFactory(factory.Factory):
 
     name = factory.Sequence(lambda n: "Product category %s" % n)
     slug = factory.Sequence(lambda n: "product-category-%s" % n)
+
+class ProductFactory(factory.Factory):
+    FACTORY_FOR = Product
+
+    name = factory.Sequence(lambda n: "Product %s" % n)
+    slug = factory.Sequence(lambda n: "product-%s" % n)
+    item_number = factory.Sequence(lambda n: n)
 
