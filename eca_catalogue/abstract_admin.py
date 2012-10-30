@@ -9,12 +9,17 @@ from abstract_models import AbstractSellingPoint
 
 class AbstractProductCategoryAdmin(admin.ModelAdmin):
     prepopulated_fields = {"slug": ("name",)}
+    list_display = ['name', 'slug',]
+    search_fields = ['name',]
 
 class AbstractNestedProductCategoryAdmin(TreeAdmin):
     prepopulated_fields = {"slug": ("name",)}
+    list_display = ['name', 'slug',]
+    search_fields = ['name',]
 
 class AbstractProductAdmin(admin.ModelAdmin):
-    list_display = ['item_number', 'name',]
+    list_display = ['item_number', 'name', 'slug']
+    search_fields = ['name', 'item_number', ]
     prepopulated_fields = {"slug": ("name",)}
 
 class AbstractSellingPointAdmin(admin.ModelAdmin):
