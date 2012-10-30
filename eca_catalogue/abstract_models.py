@@ -35,7 +35,7 @@ class AbstractNestedProductCategory(MP_Node, NSDMixin):
         return self.name
 
 class AbstractProduct(NSDMixin):
-    item_number = models.CharField(_("Item number"), max_length=255)
+    item_number = models.CharField(_("Item number"), max_length=255, unique=True)
 
     class Meta:
         abstract = True
