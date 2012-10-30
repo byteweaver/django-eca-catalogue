@@ -44,7 +44,7 @@ class AbstractProduct(NSDMixin):
         ordering = ['name']
 
     def __unicode__(self):
-        return self.name
+        return "%s (%s)" % (self.name, self.item_number)
 
 class AbstractSellingPoint(models.Model):
     text = models.CharField(_("Text"), max_length=255)
