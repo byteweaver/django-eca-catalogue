@@ -57,3 +57,12 @@ class AbstractSellingPoint(models.Model):
     def __unicode__(self):
         return self.text
 
+class PackageMeasurementMixin(models.Model):
+    length = models.DecimalField(_("Length"), max_digits=5, decimal_places=1)
+    width = models.DecimalField(_("Width"), max_digits=5, decimal_places=1)
+    height = models.DecimalField(_("Height"), max_digits=5, decimal_places=1)
+    weight = models.DecimalField(_("Weigth"), max_digits=5, decimal_places=1)
+
+    class Meta:
+        abstract = True
+
