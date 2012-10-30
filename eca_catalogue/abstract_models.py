@@ -46,3 +46,14 @@ class AbstractProduct(NSDMixin):
     def __unicode__(self):
         return self.name
 
+class AbstractSellingPoint(models.Model):
+    text = models.CharField(_("Text"), max_length=255)
+
+    class Meta:
+        abstract = True
+        verbose_name = _("Selling point")
+        verbose_name_plural = _("Selling points")
+
+    def __unicode__(self):
+        return self.text
+
