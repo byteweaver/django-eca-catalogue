@@ -34,3 +34,15 @@ class AbstractNestedProductCategory(MP_Node, NSDMixin):
             return unicode(self.get_parent()) + " -> " + self.name
         return self.name
 
+class AbstractProduct(NSDMixin):
+    item_number = models.CharField(_("Item number"), max_length=255)
+
+    class Meta:
+        abstract = True
+        verbose_name = _("Product")
+        verbose_name_plural = _("Products")
+        ordering = ['name']
+
+    def __unicode__(self):
+        return self.name
+
