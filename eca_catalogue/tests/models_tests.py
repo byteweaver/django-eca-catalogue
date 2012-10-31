@@ -9,15 +9,18 @@ class ProductCategoryTestCase(TestCase):
         obj = ProductCategoryFactory()
         self.assertTrue(obj.pk)
 
+
 class NestedProductCategoryTestCase(TestCase):
     def test_model(self):
         obj = NestedProductCategory.add_root(name="cat1", slug="cat1")
         self.assertTrue(obj.pk)
 
+
 class ProductTestCase(TestCase):
     def test_model(self):
         obj = ProductFactory()
         self.assertTrue(obj.pk)
+
 
 class SellingPointTest(TestCase):
     def test_model(self):

@@ -12,6 +12,7 @@ class NSDMixin(models.Model):
     class Meta:
         abstract = True
 
+
 class AbstractProductCategory(NSDMixin):
     class Meta:
         abstract = True
@@ -21,6 +22,7 @@ class AbstractProductCategory(NSDMixin):
 
     def __unicode__(self):
         return self.name
+
 
 class AbstractNestedProductCategory(MP_Node, NSDMixin):
     class Meta:
@@ -34,6 +36,7 @@ class AbstractNestedProductCategory(MP_Node, NSDMixin):
             return unicode(self.get_parent()) + " -> " + self.name
         return self.name
 
+
 class AbstractProduct(NSDMixin):
     item_number = models.CharField(_("Item number"), max_length=255, unique=True)
 
@@ -46,6 +49,7 @@ class AbstractProduct(NSDMixin):
     def __unicode__(self):
         return "%s (%s)" % (self.name, self.item_number)
 
+
 class AbstractSellingPoint(models.Model):
     text = models.CharField(_("Text"), max_length=255)
 
@@ -56,6 +60,7 @@ class AbstractSellingPoint(models.Model):
 
     def __unicode__(self):
         return self.text
+
 
 class PackageMeasurementMixin(models.Model):
     length = models.DecimalField(_("Length"), max_digits=5, decimal_places=1)

@@ -9,11 +9,13 @@ class UserFactory(factory.Factory):
 
     username = factory.Sequence(lambda n: "User %s" % n)
 
+
 class ProductCategoryFactory(factory.Factory):
     FACTORY_FOR = ProductCategory
 
     name = factory.Sequence(lambda n: "Product category %s" % n)
     slug = factory.Sequence(lambda n: "product-category-%s" % n)
+
 
 class ProductFactory(factory.Factory):
     FACTORY_FOR = Product
@@ -21,6 +23,7 @@ class ProductFactory(factory.Factory):
     name = factory.Sequence(lambda n: "Product %s" % n)
     slug = factory.Sequence(lambda n: "product-%s" % n)
     item_number = factory.Sequence(lambda n: n)
+
 
 class SellingPointFactory(factory.Factory):
     FACTORY_FOR = SellingPoint
