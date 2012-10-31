@@ -26,6 +26,11 @@ class AbstractProductAdmin(admin.ModelAdmin):
     list_display = ['item_number', 'name', 'slug']
     search_fields = ['name', 'item_number', ]
     prepopulated_fields = {"slug": ("name",)}
+    fieldsets = [
+        [_("Basics"), {
+            'fields': ['name', 'slug', 'item_number', 'description',],
+        }],
+    ]
 
 class AbstractSellingPointAdmin(admin.ModelAdmin):
     """name your foreign key to product model "product" in order to fully utilize this class"""
