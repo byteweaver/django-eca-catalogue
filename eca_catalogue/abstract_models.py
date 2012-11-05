@@ -71,3 +71,17 @@ class PackageMeasurementMixin(models.Model):
     class Meta:
         abstract = True
 
+
+class AbstractMaterial(models.Model):
+    name = models.CharField(_("Name"), max_length=20, unique=True)
+
+    class Meta:
+        abstract = True
+        verbose_name = _("Material")
+        verbose_name_plural = _("Material")
+
+    def __unicode__(self):
+        return self.name
+
+
+
