@@ -84,4 +84,29 @@ class AbstractMaterial(models.Model):
         return self.name
 
 
+class AbstractMaterialPercentage(models.Model):
+    """Intermediate model"""
+    material = models.ForeignKey('Material', related_name='material_percentages')
+    material_composition = models.ForeignKey('MaterialComposition', related_name='material_percentages')
+    percentage = models.PositiveIntegerField(_("Percentage"), help_text=_("Between 0 and 100"))
+
+    class Meta:
+        abstract = True
+
+
+class AbstractMaterialComposition(models.Model):
+    materials = models.ManyToManyField('Material', verbose_name=_("Material"), through='MaterialPercentage')
+
+    class Meta:
+        abstract = True
+        verbose_name = _("Material composition")
+        verbose_name_plural = _("Material compositions")
+
+    def __unicode__(self):
+        percentages = []
+        for mp in self.material_percentages.all():
+            percentages.append("%d%% %s" % (mp.percentage, mp.material.name))
+        return " ".join(percentages)
+
+
 
