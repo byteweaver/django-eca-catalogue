@@ -109,4 +109,12 @@ class AbstractMaterialComposition(models.Model):
         return " ".join(percentages)
 
 
+class AbstractProductMaterial(models.Model):
+    """Intermediate model"""
+    part = models.CharField(_("Part"), max_length=25, blank=True)
+    material_composition = models.ForeignKey('MaterialComposition')
+    product = models.ForeignKey('Product')
+
+    class Meta:
+        abstract = True
 
