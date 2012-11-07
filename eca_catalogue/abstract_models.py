@@ -71,3 +71,71 @@ class PackageMeasurementMixin(models.Model):
     class Meta:
         abstract = True
 
+
+class AbstractMaterial(models.Model):
+    name = models.CharField(_("Name"), max_length=20, unique=True)
+
+    class Meta:
+        abstract = True
+        verbose_name = _("Material")
+        verbose_name_plural = _("Material")
+
+    def __unicode__(self):
+        return self.name
+
+
+class AbstractMaterialPercentage(models.Model):
+    """Intermediate model"""
+    material = models.ForeignKey('Material', related_name='material_percentages')
+    material_composition = models.ForeignKey('MaterialComposition', related_name='material_percentages')
+    percentage = models.PositiveIntegerField(_("Percentage"), help_text=_("Between 0 and 100"))
+
+    class Meta:
+        abstract = True
+
+
+class AbstractMaterialComposition(models.Model):
+    materials = models.ManyToManyField('Material', verbose_name=_("Material"), through='MaterialPercentage')
+
+    class Meta:
+        abstract = True
+        verbose_name = _("Material composition")
+        verbose_name_plural = _("Material compositions")
+
+    def __unicode__(self):
+        percentages = []
+        for mp in self.material_percentages.all():
+            percentages.append("%d%% %s" % (mp.percentage, mp.material.name))
+        return " ".join(percentages)
+
+
+class AbstractProductMaterial(models.Model):
+    """Intermediate model"""
+    part = models.CharField(_("Part"), max_length=25, blank=True)
+    material_composition = models.ForeignKey('MaterialComposition')
+    product = models.ForeignKey('Product')
+
+    class Meta:
+        abstract = True
+
+
+class AbstractWashingInstruction(models.Model):
+    icon = models.ImageField(verbose_name=_("Icon"), upload_to='laundry_symbols/', blank=True)
+    text = models.CharField(_("Text"), max_length=255)
+
+    class Meta:
+        abstract = True
+        verbose_name = _("Washing instruction")
+        verbose_name_plural = _("Washing instructions")
+
+    def __unicode__(self):
+        return self.text
+
+    def render_icon(self):
+        if self.icon:
+            return '<img src="%s" alt="%s" title="%s">' % (self.icon.url, self.text, self.text)
+        else:
+            return None
+    render_icon.allow_tags = True
+    render_icon.short_description = _("Icon")
+

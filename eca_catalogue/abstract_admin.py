@@ -53,3 +53,7 @@ class AbstractSellingPointInline(admin.StackedInline):
         models.CharField: {'widget': TextInput(attrs={'size': '150'})},
     }
 
+
+class AbstractWashingInstructionAdmin(admin.ModelAdmin):
+    list_display = ['text', 'render_icon',]
+    search_fields = ['text',]
