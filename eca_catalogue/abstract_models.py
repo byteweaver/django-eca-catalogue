@@ -52,6 +52,7 @@ class AbstractProduct(NSDMixin):
 
 class AbstractSellingPoint(models.Model):
     text = models.CharField(_("Text"), max_length=255)
+    product = models.ForeignKey('Product', related_name='selling_points')
 
     class Meta:
         abstract = True
