@@ -13,17 +13,18 @@ package_measurement_fieldset = [_("Package measurement"), {
     'fields': ['length', 'width', 'height', 'weight']
 }]
 
-
-class AbstractProductCategoryAdmin(admin.ModelAdmin):
+class NSDMixinAdmin(admin.ModelAdmin):
     prepopulated_fields = {"slug": ("name",)}
     list_display = ['name', 'slug',]
     search_fields = ['name',]
 
 
-class AbstractNestedProductCategoryAdmin(TreeAdmin):
-    prepopulated_fields = {"slug": ("name",)}
-    list_display = ['name', 'slug',]
-    search_fields = ['name',]
+class AbstractProductCategoryAdmin(NSDMixinAdmin):
+    pass
+
+
+class AbstractNestedProductCategoryAdmin(TreeAdmin, NSDMixinAdmin):
+    pass
 
 
 class AbstractProductAdmin(admin.ModelAdmin):
@@ -57,3 +58,4 @@ class AbstractSellingPointInline(admin.StackedInline):
 class AbstractWashingInstructionAdmin(admin.ModelAdmin):
     list_display = ['text', 'render_icon',]
     search_fields = ['text',]
+
