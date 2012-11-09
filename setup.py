@@ -1,7 +1,7 @@
 import os
 from setuptools import setup, find_packages
 
-import catalogue
+import eca_catalogue
 
 
 def read(fname):
