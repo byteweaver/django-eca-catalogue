@@ -9,7 +9,7 @@ def read(fname):
 
 setup(
     name='django-eca-catalogue',
-    version=catalogue.__version__,
+    version=eca_catalogue.__version__,
     description='A reusable django app providing a generic product catalog for E-comerce projects',
     long_description=read('README.md'),
     license=read('LICENSE'),
@@ -25,5 +25,5 @@ setup(
         'coverage',
         'django-coverage',
     ],
-    test_suite='catalogue.tests',
+    test_suite='eca_catalogue.tests',
 )
