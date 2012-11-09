@@ -5,7 +5,7 @@ from treebeard.mp_tree import MP_Node
 
 
 class NSDMixin(models.Model):
-    name = models.CharField(_("Name"), max_length=128)
+    name = models.CharField(_("Name"), max_length=128, unique=True)
     slug = models.SlugField(_("Slug"), max_length=128, unique=True)
     description = models.TextField(_("Description"), blank=True, null=True)
 
