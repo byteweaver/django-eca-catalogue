@@ -19,6 +19,7 @@ setup(
     packages=find_packages(),
     install_requires=[
         'django',
+        'django-treebeard',
     ],
     tests_require=[
         'django-nose',
