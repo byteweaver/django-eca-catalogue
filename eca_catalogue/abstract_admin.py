@@ -51,3 +51,7 @@ class AbstractWashingInstructionAdmin(admin.ModelAdmin):
     list_display = ['text', 'render_icon',]
     search_fields = ['text',]
 
+
+class AbstractMaterialCompositionAdmin(admin.ModelAdmin):
+    filter_horizontal = ['material_percentages']
+
