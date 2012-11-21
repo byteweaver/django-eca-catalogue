@@ -80,6 +80,7 @@ class AbstractMaterial(models.Model):
         abstract = True
         verbose_name = _("Material")
         verbose_name_plural = _("Material")
+        ordering = ['name']
 
     def __unicode__(self):
         return self.name
