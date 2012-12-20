@@ -13,7 +13,7 @@ class UNSDMixin(models.Model):
         abstract = True
 
     def save(self, *args, **kwargs):
-        self.name = name.strip()
+        self.name = self.name.strip()
         return super(UNSDMixin, self).save(*args, **kwargs)
 
 
@@ -26,7 +26,7 @@ class NSDMixin(models.Model):
         abstract = True
 
     def save(self, *args, **kwargs):
-        self.name = name.strip()
+        self.name = self.name.strip()
         return super(NSDMixin, self).save(*args, **kwargs)
 
 
