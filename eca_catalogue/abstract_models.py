@@ -4,7 +4,7 @@ from django.utils.translation import ugettext_lazy as _
 from treebeard.mp_tree import MP_Node
 
 
-class NSDMixin(models.Model):
+class UNSDMixin(models.Model):
     name = models.CharField(_("Name"), max_length=128, unique=True)
     slug = models.SlugField(_("Slug"), max_length=128, unique=True)
     description = models.TextField(_("Description"), blank=True, null=True)
@@ -12,8 +12,25 @@ class NSDMixin(models.Model):
     class Meta:
         abstract = True
 
+    def save(self, *args, **kwargs):
+        self.name = name.strip()
+        return super(UNSDMixin, self).save(*args, **kwargs)
 
-class AbstractProductCategory(NSDMixin):
+
+class NSDMixin(models.Model):
+    name = models.CharField(_("Name"), max_length=128)
+    slug = models.SlugField(_("Slug"), max_length=128, unique=True)
+    description = models.TextField(_("Description"), blank=True, null=True)
+
+    class Meta:
+        abstract = True
+
+    def save(self, *args, **kwargs):
+        self.name = name.strip()
+        return super(NSDMixin, self).save(*args, **kwargs)
+
+
+class AbstractProductCategory(UNSDMixin):
     class Meta:
         abstract = True
         verbose_name = _("Product category")
@@ -24,7 +41,7 @@ class AbstractProductCategory(NSDMixin):
         return self.name
 
 
-class AbstractNestedProductCategory(MP_Node, NSDMixin):
+class AbstractNestedProductCategory(MP_Node, UNSDMixin):
     class Meta:
         abstract = True
         verbose_name = _("Nested product category")
@@ -37,7 +54,7 @@ class AbstractNestedProductCategory(MP_Node, NSDMixin):
         return self.name
 
 
-class AbstractProduct(NSDMixin):
+class AbstractProduct(UNSDMixin):
     item_number = models.CharField(_("Item number"), max_length=255, unique=True)
 
     class Meta:
