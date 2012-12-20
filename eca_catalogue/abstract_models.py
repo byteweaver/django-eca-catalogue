@@ -139,6 +139,8 @@ class AbstractProductMaterial(models.Model):
 
     class Meta:
         abstract = True
+        verbose_name = _("Material")
+        verbose_name_plural = _("Materials")
 
 
 class AbstractWashingInstruction(models.Model):
