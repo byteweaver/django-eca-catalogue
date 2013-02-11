@@ -81,10 +81,10 @@ class AbstractSellingPoint(models.Model):
 
 
 class PackageMeasurementMixin(models.Model):
-    length = models.DecimalField(_("Length"), max_digits=5, decimal_places=1, default=0)
-    width = models.DecimalField(_("Width"), max_digits=5, decimal_places=1, default=0)
-    height = models.DecimalField(_("Height"), max_digits=5, decimal_places=1, default=0)
-    weight = models.DecimalField(_("Weigth"), max_digits=5, decimal_places=1, default=0)
+    length = models.FloatField(_("Length"), default=0)
+    width = models.FloatField(_("Width"), default=0)
+    height = models.FloatField(_("Height"), default=0)
+    weight = models.FloatField(_("Weigth"), default=0)
 
     class Meta:
         abstract = True
