@@ -1,8 +1,6 @@
 from django.contrib import admin
 from django.db import models
 
-from abstract_models import AbstractSellingPoint
-
 
 class AbstractSellingPointAdmin(admin.ModelAdmin):
     """name your foreign key to product model "product" in order to fully utilize this class"""
