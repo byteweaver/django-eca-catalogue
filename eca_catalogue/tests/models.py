@@ -12,6 +12,3 @@ class NestedProductCategory(AbstractNestedProductCategory):
 class Product(AbstractProduct):
     pass
 
-
-class SellingPoint(AbstractSellingPoint):
-    pass

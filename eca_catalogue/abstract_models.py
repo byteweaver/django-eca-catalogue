@@ -67,19 +67,6 @@ class AbstractProduct(UNSDMixin):
         return "%s (%s)" % (self.name, self.item_number)
 
 
-class AbstractSellingPoint(models.Model):
-    text = models.CharField(_("Text"), max_length=255)
-    product = models.ForeignKey('Product', related_name='selling_points')
-
-    class Meta:
-        abstract = True
-        verbose_name = _("Selling point")
-        verbose_name_plural = _("Selling points")
-
-    def __unicode__(self):
-        return self.text
-
-
 class PackageMeasurementMixin(models.Model):
     length = models.FloatField(_("Length"), default=0)
     width = models.FloatField(_("Width"), default=0)

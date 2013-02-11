@@ -1,8 +1,7 @@
 from django.test import TestCase
 
 from eca_catalogue.tests.models import NestedProductCategory
-from eca_catalogue.tests.factories import ProductCategoryFactory, ProductFactory, SellingPointFactory
-
+from eca_catalogue.tests.factories import ProductCategoryFactory, ProductFactory
 
 class ProductCategoryTestCase(TestCase):
     def test_model(self):
@@ -19,11 +18,5 @@ class NestedProductCategoryTestCase(TestCase):
 class ProductTestCase(TestCase):
     def test_model(self):
         obj = ProductFactory()
-        self.assertTrue(obj.pk)
-
-
-class SellingPointTest(TestCase):
-    def test_model(self):
-        obj = SellingPointFactory()
         self.assertTrue(obj.pk)
 
