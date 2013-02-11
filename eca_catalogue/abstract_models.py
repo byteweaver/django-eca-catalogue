@@ -67,19 +67,6 @@ class AbstractProduct(UNSDMixin):
         return "%s (%s)" % (self.name, self.item_number)
 
 
-class AbstractSellingPoint(models.Model):
-    text = models.CharField(_("Text"), max_length=255)
-    product = models.ForeignKey('Product', related_name='selling_points')
-
-    class Meta:
-        abstract = True
-        verbose_name = _("Selling point")
-        verbose_name_plural = _("Selling points")
-
-    def __unicode__(self):
-        return self.text
-
-
 class PackageMeasurementMixin(models.Model):
     length = models.FloatField(_("Length"), default=0)
     width = models.FloatField(_("Width"), default=0)
@@ -147,24 +134,4 @@ class AbstractProductMaterial(models.Model):
             return "%s %s" % (self.part, unicode(self.material_composition))
         else:
             return unicode(self.material_composition)
-
-class AbstractWashingInstruction(models.Model):
-    icon = models.ImageField(verbose_name=_("Icon"), upload_to='laundry_symbols/', blank=True)
-    text = models.CharField(_("Text"), max_length=255)
-
-    class Meta:
-        abstract = True
-        verbose_name = _("Washing instruction")
-        verbose_name_plural = _("Washing instructions")
-
-    def __unicode__(self):
-        return self.text
-
-    def render_icon(self):
-        if self.icon:
-            return '<img src="%s" alt="%s" title="%s">' % (self.icon.url, self.text, self.text)
-        else:
-            return None
-    render_icon.allow_tags = True
-    render_icon.short_description = _("Icon")
 
