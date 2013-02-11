@@ -142,6 +142,11 @@ class AbstractProductMaterial(models.Model):
         verbose_name = _("Material")
         verbose_name_plural = _("Materials")
 
+    def __unicode__(self):
+        if self.part != "":
+            return "%s %s" % (self.part, unicode(self.material_composition))
+        else:
+            return unicode(self.material_composition)
 
 class AbstractWashingInstruction(models.Model):
     icon = models.ImageField(verbose_name=_("Icon"), upload_to='laundry_symbols/', blank=True)
