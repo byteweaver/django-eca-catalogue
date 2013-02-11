@@ -28,5 +28,7 @@ class ProductFactory(factory.Factory):
 class SellingPointFactory(factory.Factory):
     FACTORY_FOR = SellingPoint
 
+    product = ProductFactory()
+
     text = "Some text"
 
