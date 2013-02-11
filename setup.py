@@ -25,6 +25,7 @@ setup(
         'django-nose',
         'coverage',
         'django-coverage',
+        'PIL',
     ],
     test_suite='eca_catalogue.tests',
 )
