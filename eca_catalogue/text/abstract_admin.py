@@ -1,5 +1,6 @@
 from django.contrib import admin
 from django.db import models
+from django.forms.widgets import TextInput
 
 
 class AbstractSellingPointAdmin(admin.ModelAdmin):
