@@ -51,8 +51,8 @@ class AbstractProductMaterial(models.Model):
 
     class Meta:
         abstract = True
-        verbose_name = _("Material")
-        verbose_name_plural = _("Materials")
+        verbose_name = _("Product material")
+        verbose_name_plural = _("Product materials")
 
     def __unicode__(self):
         return unicode(self.material_composition)
