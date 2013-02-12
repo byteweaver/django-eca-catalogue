@@ -3,8 +3,6 @@ from django.db import models
 from django.forms.widgets import TextInput
 from django.utils.translation import ugettext_lazy as _
 
-from treebeard.admin import TreeAdmin
-
 from abstract_models import AbstractSellingPoint
 
 
@@ -17,14 +15,6 @@ class NSDMixinAdmin(admin.ModelAdmin):
     prepopulated_fields = {"slug": ("name",)}
     list_display = ['name', 'slug',]
     search_fields = ['name',]
-
-
-class AbstractProductCategoryAdmin(NSDMixinAdmin):
-    pass
-
-
-class AbstractNestedProductCategoryAdmin(TreeAdmin, NSDMixinAdmin):
-    pass
 
 
 class AbstractProductAdmin(admin.ModelAdmin):
