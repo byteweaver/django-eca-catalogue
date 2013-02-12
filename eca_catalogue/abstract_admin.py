@@ -27,6 +27,3 @@ class AbstractProductAdmin(admin.ModelAdmin):
         }],
     ]
 
-class AbstractMaterialCompositionAdmin(admin.ModelAdmin):
-    filter_horizontal = ['material_percentages']
-
