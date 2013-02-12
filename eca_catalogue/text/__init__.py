@@ -1,1 +1,1 @@
-# Anything that is plain text related
+"""Provides models that are content and text related"""
