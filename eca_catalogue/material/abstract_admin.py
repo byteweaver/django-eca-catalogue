@@ -15,3 +15,8 @@ class AbstractMaterialCompositionAdmin(admin.ModelAdmin):
     filter_horizontal = ['material_percentages',]
     list_filter = ['material_percentages__material',]
 
+
+class AbstractProductMaterialAdmin(admin.ModelAdmin):
+    list_display = ['material_composition', 'product',]
+    raw_id_fields = ['product',]
+
