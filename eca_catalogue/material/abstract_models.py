@@ -47,7 +47,7 @@ class AbstractMaterialComposition(models.Model):
 class AbstractProductMaterial(models.Model):
     """Links a material composition to a product, may also be used as an intermediate model."""
     material_composition = models.ForeignKey('MaterialComposition')
-    product = models.ForeignKey('Product')
+    product = models.ForeignKey('Product', related_name='materials')
 
     class Meta:
         abstract = True
