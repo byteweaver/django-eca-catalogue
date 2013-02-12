@@ -27,6 +27,7 @@ INTERNAL_APPS = [
     'eca_catalogue.categorization.tests',
     'eca_catalogue.material.tests',
     'eca_catalogue.measurement.tests',
+    'eca_catalogue.product.tests',
     'eca_catalogue.tests',
 ]
 INSTALLED_APPS = EXTERNAL_APPS + INTERNAL_APPS
