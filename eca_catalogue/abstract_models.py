@@ -1,7 +1,6 @@
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
 
-from treebeard.mp_tree import MP_Node
 
 
 class UNSDMixin(models.Model):
@@ -28,30 +27,6 @@ class NSDMixin(models.Model):
     def save(self, *args, **kwargs):
         self.name = self.name.strip()
         return super(NSDMixin, self).save(*args, **kwargs)
-
-
-class AbstractProductCategory(UNSDMixin):
-    class Meta:
-        abstract = True
-        verbose_name = _("Product category")
-        verbose_name_plural = _("Product categories")
-        ordering = ['name']
-
-    def __unicode__(self):
-        return self.name
-
-
-class AbstractNestedProductCategory(MP_Node, UNSDMixin):
-    class Meta:
-        abstract = True
-        verbose_name = _("Nested product category")
-        verbose_name_plural = _("Nested product categories")
-        ordering = ['name']
-
-    def __unicode__(self):
-        if not self.is_root():
-            return unicode(self.get_parent()) + " -> " + self.name
-        return self.name
 
 
 class AbstractProduct(UNSDMixin):
