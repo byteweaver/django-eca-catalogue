@@ -55,8 +55,5 @@ class AbstractProductMaterial(models.Model):
         verbose_name_plural = _("Materials")
 
     def __unicode__(self):
-        if self.part != "":
-            return "%s %s" % (self.part, unicode(self.material_composition))
-        else:
-            return unicode(self.material_composition)
+        return unicode(self.material_composition)
 
