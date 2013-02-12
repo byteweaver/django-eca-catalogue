@@ -10,7 +10,7 @@ def read(fname):
 setup(
     name='django-eca-catalogue',
     version=eca_catalogue.__version__,
-    description='A reusable django app providing a generic product catalog for E-comerce projects',
+    description='A reusable django app providing a generic product catalog for eComerce projects',
     long_description=read('README.md'),
     license=read('LICENSE'),
     author='byteweaver',
