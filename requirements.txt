@@ -4,3 +4,4 @@ coverage
 django-coverage
 django-treebeard
 factory_boy
+PIL
