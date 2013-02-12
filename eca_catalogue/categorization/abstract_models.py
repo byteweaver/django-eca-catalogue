@@ -21,6 +21,7 @@ class AbstractProductCategory(models.Model):
 class AbstractNestedProductCategory(AbstractProductCategory, MP_Node):
     class Meta:
         abstract = True
+        ordering = []
 
     def __unicode__(self):
         if not self.is_root():
