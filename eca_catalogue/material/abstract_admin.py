@@ -5,7 +5,7 @@ class AbstractMaterialAdmin(admin.ModelAdmin):
     search_fields = ['name',]
 
 
-class AbstractMaterialPercentagejAdmin(admin.ModelAdmin):
+class AbstractMaterialPercentageAdmin(admin.ModelAdmin):
     list_display = ['material', 'percentage',]
     search_fields = ['material__name', 'percentage',]
     list_filter = ['material',]
