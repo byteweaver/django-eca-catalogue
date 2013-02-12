@@ -24,6 +24,7 @@ INTERNAL_APPS = [
     'django_nose',
     'eca_catalogue',
     'eca_catalogue.text.tests',
+    'eca_catalogue.categorization.tests',
     'eca_catalogue.tests',
 ]
 INSTALLED_APPS = EXTERNAL_APPS + INTERNAL_APPS
