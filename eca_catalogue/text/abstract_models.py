@@ -35,3 +35,16 @@ class AbstractWashingInstruction(models.Model):
     render_icon.allow_tags = True
     render_icon.short_description = _("Icon")
 
+
+class AbstractProductWashingInstruction(models.Model):
+    washing_instruction = models.ForeignKey('WashingInstruction')
+    product = models.ForeignKey('Product', related_name='washing_instructions')
+
+    class Meta:
+        abstract = True
+        verbose_name = _("Product washing instruction")
+        verbose_name_plural = _("Product washing instructions")
+
+    def __unicode__(self):
+        return unicode(self.washing_instruction)
+
