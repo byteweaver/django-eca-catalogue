@@ -17,3 +17,8 @@ class AbstractWashingInstructionAdmin(admin.ModelAdmin):
     list_display = ['text', 'render_icon',]
     search_fields = ['text',]
 
+
+class AbstractProductWashingInstructionAdmin(admin.ModelAdmin):
+    list_display = ['product', 'washing_instruction',]
+    raw_id_fields = ['product',]
+
