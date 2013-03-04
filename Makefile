@@ -3,7 +3,7 @@ PIP_BIN=$(VIRTUALENV_FOLDER)/bin/pip
 PYTHON_BIN=$(VIRTUALENV_FOLDER)/bin/python
 
 
-all: environment
+all: environment requirements
 
 environment:
 	test -d "$(VIRTUALENV_FOLDER)" || virtualenv --no-site-packages $(VIRTUALENV_FOLDER)
