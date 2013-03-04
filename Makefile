@@ -5,6 +5,9 @@ PYTHON_BIN=$(VIRTUALENV_FOLDER)/bin/python
 
 all: environment requirements
 
+packages:
+	apt-get install python python-dev python-virtualenv
+
 environment:
 	test -d "$(VIRTUALENV_FOLDER)" || virtualenv --no-site-packages $(VIRTUALENV_FOLDER)
 
