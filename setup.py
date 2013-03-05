@@ -18,7 +18,7 @@ setup(
     url='https://github.com/byteweaver/django-eca-catalogue',
     packages=find_packages(),
     install_requires=[
-        'django',
+        'django==1.5',
         'django-treebeard',
     ],
     tests_require=[
